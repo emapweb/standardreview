@@ -1,0 +1,96 @@
+<!-- Global taglib - these tags are shared across all subsites -->
+
+<include src="rapid" gem="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<extend tag="page">
+  <old-page merge without-live-search without-count>
+    <custom-scripts:>
+      <javascript name="ckeditor/ckeditor"/>
+      <javascript name="load_ckeditor"/>
+    </custom-scripts:>
+    <footer:>
+      <div>
+        <a href="../privacy.html">EMAP Privacy Policy</a>&nbsp;
+        Copyright &#64; 2012 - EMAP
+      </div>
+    </footer:>
+  </old-page>
+</extend>
+
+<extend tag="form" for="Project">
+  <old-form merge>
+    <error-messages />
+    <h2>COMMENT FORM FOR <i>THE EMERGENCY MANAGEMENT STANDARD</i> by EMAP 2013</h2><br />
+    <h4>FINAL DATE FOR RECIEPT OF COMMENTS: June 15, 2012</h4> Download the proposed <a href="../images/PropEMS2013.pdf" target="_blank"><i>Emergency Management Standard</i> by EMAP</a> <br />
+    <h5>All fields on this form must be completed for the comment to be considered</h5><br />
+    <div class="stdimage">
+      <a href="../images/PropEMS2013.pdf" target="_blank" class="none"><img src="../images/proposed_2013_standard_small.jpg" alt="Proposed EMAP Standard 2013" /></a>
+    </div>
+    <field-list fields="date"/>
+    <h3>Contact Information:</h3>
+    <field-list fields="name, phone, email"/>
+
+    <field-list fields="organization, address, city, state, zip">
+      <state-view:>
+        <select-one blank-message="Select a State"/>
+      </state-view:>
+    </field-list><br />
+    <hr />
+    <h3>Proposed Change:</h3>
+    <field-list fields="standard, area">
+      <area-view:>
+        <do part="area-menu">
+          <if test="&@project.standard">
+            <select-one options="&@project.standard.areas" blank-message="Please Select a Standard Area"/>
+          </if>
+          <else>
+            <select disabled><option>First choose a Standard</option></select>
+          </else>
+        </do>
+      </area-view:>
+    </field-list><br />
+    <field-list fields="com_rec">
+      <com_rec-view:>
+        <select-one blank-message="Select the type of recommendation"/>
+      </com_rec-view:>
+    </field-list><br />
+    In the space below, include proposed or revised wording; identify wording to be deleted. (For purposes of this form denote wording added by underlining and wording deleted by striking through)
+    <field-list fields="comment"/><br />
+    Include reasoning behind comment as well as empirical evidence for changes where appropriate. (If the reasoning and evidence given is over 150 words it may be summarized for purposes of publication)
+    <field-list fields="support"/>
+    <hr />
+    <h2>Copyright</h2><br />
+    <p><i>I agree that all comments and substantiation listed on the above form shall be considered property of the Emergency Management Accreditation Program (EMAP) Technical Committee. To any extent that I retain rights to the above comments and substantiation I grant and assign full rights in copyright to EMAP. I further agree that by submitting this comment form I retain no rights to any publications by EMAP that may or may not use the above comments and substantiation and acknowledge the right of EMAP to register copyright in its name.</i></p><br />
+    <field-list fields="signature, rop_email"/>
+    <div class="actions">
+      <submit label="#{ht 'project.actions.save', :default=>['Save']}" param/><or-cancel/>
+    </div>
+  </old-form>
+</extend>
+
+<extend tag="new-page" for="Project">
+  <old-new-page merge>
+    <append-content-body:>
+      <span class="mesg"><h2>PLEASE USE A SEPERATE FORM FOR EACH COMMENT</h2></span><br />
+      <h5><u>Contact EMAP</u></h5>
+      Email: EMAP@csg.org<br />
+      Fax: (859) 244-8239<br />
+      <table>
+      <tr>
+      <td>Mail: </td>
+      <td>&nbsp;</td>
+      <td>Attn. Public Comment<br />
+      EMAP<br />
+      P.O. Box 11910<br />
+      Lexington, KY 40578</td>
+      </tr>
+      </table>
+    </append-content-body:>
+  </old-new-page>
+</extend>

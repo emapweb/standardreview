@@ -1,0 +1,27 @@
+<page title="Home">
+
+  <body: class="front-page"/>
+
+  <content:>
+    <header class="content-header">
+      <h1>Follow the link below to submit a comment on the proposed Emergency Management Standard by EMAP</h1>
+      <section class="welcome-message">
+
+        <% if User.count == 0 -%>
+          <h3 style="margin-top: 20px;">There are no user accounts - please provide the details of the site administrator</h3>
+          <form with="&this || User.new" without-cancel>
+            <field-list: fields="name, email_address, password, password_confirmation"/>
+            <submit: label="Register Administrator"/>
+          </form>
+        <% end -%>
+
+      </section>
+    </header>
+
+    <section with="&@project" class="content-body">
+      <a href="http://standardreview.emaponline.org/projects/new">New Proposed Change to EMAP Standard Language
+      </a>
+    </section>
+  </content:>
+
+</page>

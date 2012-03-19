@@ -1,0 +1,56 @@
+# Even if you only support one language, you can use this file to customise the names that appear in the UI
+# e.g.
+
+en:
+  hello: "Hello world"
+
+#  attributes:
+#    created_at: Created at
+#    updated_at: Updated at
+#
+#  activerecord:
+#    models:
+#      user:
+#        one: User
+#        other: Users
+#    attributes:
+#      user:
+#        name: Name
+#        password: Password
+#        current_password: Current Password
+#        password_confirmation: Password Confirmation
+#        email_address: Email Address
+#    attribute_help:
+#      user:
+#        email_address: We will never share your address with third parties
+  activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+      project:
+        one: Proposed Change to EMAP Standard Language
+        other: Proposed Changes to EMAP Standard Language
+    attributes:
+      project:
+        name: Name
+        standard: Standard Chapter
+        area: Standard Subsection
+        com_rec: Comment Recommends
+        support: Support for Comment
+        rop_email: Reply to email address
+
+    attribute_help:
+      project:
+        date: Today's date
+        name: Your full name
+        phone: Use this format for your number (XXX-XXX-XXXX)
+        email: We will never share your address with third parties
+        organization: Please indicate the organization represented
+        com_rec: Select one, this is an indication of the type of proposed change
+        signature: By typing your name you are signing this form and agreeing to be bound by the above copyright terms.
+        rop_email: Enter the email address where the response to this comment should be sent.
+
+
+
+
